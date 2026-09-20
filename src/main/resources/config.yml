@@ -14,8 +14,9 @@ settings:
 self-destruct:
   check-interval-ticks: 20
   players-per-tick: 8
-  # lore line appended to timed items
-  lore-format: "&8» &7Expires in: &c%time%"
+  # two lore lines appended to timed items: a static header + the live countdown
+  header: "&7Self Destruct"
+  time-color: "&f"
   # delayed mode: timer starts after this many minutes of first use
   default-delay-minutes: 1
 
@@ -37,45 +38,45 @@ sell:
 tools:
   drill:
     material: NETHERITE_PICKAXE
-    name: "&d&lAmethyst Drill"
+    name: "&d&lAMETHYST DRILL"
     lore:
-      - "&7Breaks a &d3x3 &7area instantly."
-    enchants: ["efficiency:5", "unbreaking:3", "fortune:3"]
+      - "&7Breaks A 3x3 Area Instantly"
+    enchants: ["efficiency:5", "unbreaking:3", "fortune:3", "mending:1"]
   axe:
     material: NETHERITE_AXE
-    name: "&d&lAmethyst Axe"
+    name: "&d&lAMETHYST AXE"
     lore:
-      - "&7Chops the &dwhole tree &7in one swing."
-    enchants: ["efficiency:5", "unbreaking:3"]
+      - "&7Chops The Whole Tree In One Swing"
+    enchants: ["efficiency:5", "unbreaking:3", "mending:1"]
   shovel:
     material: NETHERITE_SHOVEL
-    name: "&d&lAmethyst Shovel"
+    name: "&d&lAMETHYST SHOVEL"
     lore:
-      - "&7Clears a &d3x3 &7area of soft blocks."
-    enchants: ["efficiency:5", "unbreaking:3"]
+      - "&7Clears A 3x3 Area Of Soft Blocks"
+    enchants: ["efficiency:5", "unbreaking:3", "mending:1"]
   sellaxe:
     material: NETHERITE_AXE
-    name: "&d&lAmethyst Sell-Axe"
+    name: "&d&lAMETHYST SELL AXE"
     lore:
-      - "&7Right-click a chest to &dsell &7its contents."
-    enchants: ["unbreaking:3"]
+      - "&7Instantly Sells All Items In A Chest"
+    enchants: ["efficiency:5", "unbreaking:3", "mending:1"]
   bucket:
     material: BUCKET
-    name: "&d&lAmethyst Bucket"
+    name: "&d&lAMETHYST BUCKET"
     lore:
-      - "&7Drains up to &d27 &7fluid blocks."
+      - "&7Drains Up To 27 Fluid Blocks"
     enchants: []
   multitool:
     material: NETHERITE_PICKAXE
-    name: "&d&lAmethyst Multi-Tool"
+    name: "&d&lAMETHYST MULTI-TOOL"
     lore:
-      - "&7Acts as pickaxe, axe or shovel."
-    enchants: ["efficiency:5", "unbreaking:3", "fortune:3"]
+      - "&7Acts As Pickaxe, Axe Or Shovel"
+    enchants: ["efficiency:5", "unbreaking:3", "fortune:3", "mending:1"]
   firework:
     material: FIREWORK_ROCKET
-    name: "&d&lAmethyst Firework"
+    name: "&d&lAMETHYST FIREWORK"
     lore:
-      - "&7Infinite elytra boost."
+      - "&7Infinite Elytra Boost"
     enchants: []
 
 messages:
