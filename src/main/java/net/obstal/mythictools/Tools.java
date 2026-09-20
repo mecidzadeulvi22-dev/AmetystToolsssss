@@ -155,10 +155,15 @@ public final class Tools {
             pdc.remove(KEY_DELAY);
         }
         List<Component> lore = meta.lore() == null ? new ArrayList<>() : new ArrayList<>(meta.lore());
-        String line = cfg.getString("self-destruct.lore-format", "&7Expires in: &c%time%")
-                .replace("%time%", format(millis));
-        if (pdc.has(KEY_TIMER_LINE, PersistentDataType.BYTE) && !lore.isEmpty()) lore.set(lore.size() - 1, c(line));
-        else lore.add(c(line));
+        boolean hasBlock = pdc.has(KEY_TIMER_LINE, PersistentDataType.BYTE);
+        if (hasBlock && lore.size() >= 2) {
+            lore.remove(lore.size() - 1);
+            lore.remove(lore.size() - 1);
+        }
+        String header = cfg.getString("self-destruct.header", "&7Self Destruct");
+        String timeColor = cfg.getString("self-destruct.time-color", "&f");
+        lore.add(c(header));
+        lore.add(c(timeColor + format(millis)));
         pdc.set(KEY_TIMER_LINE, PersistentDataType.BYTE, (byte) 1);
         meta.lore(lore);
         item.setItemMeta(meta);
@@ -173,15 +178,15 @@ public final class Tools {
         return true;
     }
 
-    /** Rewrites the countdown line; returns false if nothing changed. */
+    /** Rewrites only the countdown value line; the header line is left untouched. */
     public static void updateTimerLore(ItemStack item, long remaining, FileConfiguration cfg) {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
         if (!meta.getPersistentDataContainer().has(KEY_TIMER_LINE, PersistentDataType.BYTE)) return;
         List<Component> lore = meta.lore() == null ? new ArrayList<>() : new ArrayList<>(meta.lore());
         if (lore.isEmpty()) return;
-        Component line = c(cfg.getString("self-destruct.lore-format", "&7Expires in: &c%time%")
-                .replace("%time%", format(remaining)));
+        String timeColor = cfg.getString("self-destruct.time-color", "&f");
+        Component line = c(timeColor + format(remaining));
         if (plain(lore.get(lore.size() - 1)).equals(plain(line))) return; // avoid needless packets
         lore.set(lore.size() - 1, line);
         meta.lore(lore);
