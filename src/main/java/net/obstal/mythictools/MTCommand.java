@@ -47,8 +47,12 @@ public final class MTCommand implements CommandExecutor, TabCompleter {
                 ItemStack item = Tools.create(type, plugin.getConfig());
                 if (item == null) return usage(sender);
                 target.getInventory().addItem(item);
-                sender.sendMessage(Tools.c(plugin.prefix() + plugin.getConfig().getString("messages.given", "")
-                        .replace("%tool%", type.id).replace("%player%", target.getName())));
+                // e.g. "AMETHYST AXE received!" - bold purple item name + plain white text
+                target.sendMessage(item.getItemMeta().displayName().append(Tools.c("&f received!")));
+                if (!target.equals(sender)) {
+                    sender.sendMessage(Tools.c(plugin.prefix() + plugin.getConfig().getString("messages.given", "")
+                            .replace("%tool%", type.id).replace("%player%", target.getName())));
+                }
             }
             case "selfdestruct", "sd" -> {
                 if (!(sender instanceof Player player)) return usage(sender);
