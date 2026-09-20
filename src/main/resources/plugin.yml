@@ -1,0 +1,21 @@
+name: MythicTools
+version: '${project.version}'
+main: net.obstal.mythictools.MythicTools
+api-version: '1.21'
+author: Obstal
+softdepend: [Vault]
+description: Amethyst area tools + item self-destruct timers.
+
+commands:
+  mythictools:
+    description: MythicTools main command
+    usage: /mt give <tool> [player] | /mt selfdestruct [-1] <time> | /mt reload
+    aliases: [mt, mtools]
+
+permissions:
+  mythictools.admin:
+    description: Give tools, set self-destruct, reload
+    default: op
+  mythictools.use:
+    description: Use every mythic tool
+    default: true

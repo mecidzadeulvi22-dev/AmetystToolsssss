@@ -1,0 +1,95 @@
+# MythicTools - config.yml
+settings:
+  unbreakable-tools: true
+  particles: true
+  sounds: true
+  # max blocks a single swing may break
+  max-drill-blocks: 9
+  max-shovel-blocks: 9
+  max-tree-blocks: 200
+  max-fluid-blocks: 27
+  # ticks between cascading tree breaks (0 = instant)
+  tree-delay-ticks: 1
+
+self-destruct:
+  check-interval-ticks: 20
+  players-per-tick: 8
+  # lore line appended to timed items
+  lore-format: "&8» &7Expires in: &c%time%"
+  # delayed mode: timer starts after this many minutes of first use
+  default-delay-minutes: 1
+
+sell:
+  # used by the Sell-Axe when Vault economy is present
+  prices:
+    DIAMOND: 100.0
+    EMERALD: 80.0
+    GOLD_INGOT: 25.0
+    IRON_INGOT: 12.0
+    COPPER_INGOT: 4.0
+    COAL: 3.0
+    REDSTONE: 2.0
+    LAPIS_LAZULI: 3.0
+    AMETHYST_SHARD: 15.0
+    COBBLESTONE: 0.5
+    DEEPSLATE: 0.5
+
+tools:
+  drill:
+    material: NETHERITE_PICKAXE
+    name: "&d&lAmethyst Drill"
+    lore:
+      - "&7Breaks a &d3x3 &7area instantly."
+    enchants: ["efficiency:5", "unbreaking:3", "fortune:3"]
+  axe:
+    material: NETHERITE_AXE
+    name: "&d&lAmethyst Axe"
+    lore:
+      - "&7Chops the &dwhole tree &7in one swing."
+    enchants: ["efficiency:5", "unbreaking:3"]
+  shovel:
+    material: NETHERITE_SHOVEL
+    name: "&d&lAmethyst Shovel"
+    lore:
+      - "&7Clears a &d3x3 &7area of soft blocks."
+    enchants: ["efficiency:5", "unbreaking:3"]
+  sellaxe:
+    material: NETHERITE_AXE
+    name: "&d&lAmethyst Sell-Axe"
+    lore:
+      - "&7Right-click a chest to &dsell &7its contents."
+    enchants: ["unbreaking:3"]
+  bucket:
+    material: BUCKET
+    name: "&d&lAmethyst Bucket"
+    lore:
+      - "&7Drains up to &d27 &7fluid blocks."
+    enchants: []
+  multitool:
+    material: NETHERITE_PICKAXE
+    name: "&d&lAmethyst Multi-Tool"
+    lore:
+      - "&7Acts as pickaxe, axe or shovel."
+    enchants: ["efficiency:5", "unbreaking:3", "fortune:3"]
+  firework:
+    material: FIREWORK_ROCKET
+    name: "&d&lAmethyst Firework"
+    lore:
+      - "&7Infinite elytra boost."
+    enchants: []
+
+messages:
+  prefix: "&d&lMythicTools &8» &r"
+  no-permission: "&cYou may not do that."
+  usage: "&7/mt give <tool> [player] &8| &7/mt selfdestruct [-1] <time> &8| &7/mt reload"
+  reloaded: "&aConfig reloaded."
+  given: "&aGave &d%tool% &ato &f%player%&a."
+  unknown-tool: "&cUnknown tool: &f%tool%"
+  hold-item: "&cHold an item first."
+  timer-set: "&aTimer set: &f%time%"
+  timer-delayed: "&aTimer will start &f%time% &aafter first use."
+  bad-time: "&cInvalid time. Example: &f1d5h30m"
+  expired: "&c%item% &7has self-destructed."
+  sold: "&aSold &f%amount% &aitems for &f$%money%&a."
+  sell-empty: "&cNothing worth selling in there."
+  no-economy: "&cNo Vault economy found."
